@@ -15,6 +15,11 @@
   height: 40vmin;
 }
 
+.App-logo2 {
+  animation: 3s slide-margin linear infinite;
+  height: 40vmin;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -26,4 +31,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes slide-margin {
+  from {margin-left: 0;}
+  50% {margin-left: 100%;}
+  to {margin-left: 0;}
 }
