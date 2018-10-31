@@ -1,4 +1,12 @@
-Refs
+#Suunnitelma
+
+-animaatio
+-toggle animation on/off nappi
+-"calculations /w webworkers"
+-"calculations /wo webworkers"
+-"benchmark calculation, input complexity or someting"
+
+#Refs
 
 https://parallel.js.org/
 
