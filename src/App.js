@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import worker_script from './worker';
+import Clock from './Clock.js'
 
 class App extends Component {
   constructor(props) {
@@ -106,49 +107,67 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.alertFunc}>Window.alert('Hi') Example</button>
-        <img
-          src={logo}
-          className={this.state.animation1 ? "App-logo" : "App-logo-paused"}
-          alt="logo"
-          onClick={this.toggleAnimation1}
-        />
-        <p className="logo-text">
-          React-logo rotating with CSS transform: rotate().
-        </p>
-        <img
-          src={logo}
-          className={this.state.animation2 ? "App-logo2" : "App-logo2-paused"}
-          alt="logo"
-          onClick={this.toggleAnimation2}
-        />
-        <p className="logo2-text">React-logo sliding with CSS margin-left().</p>
-        <b>Monte Carlo PI Simulator</b>
-        <form>
-      
-          <label>
-          number of iterations: 
-            <input
-              type="text"
-              name="i"
-              onChange={this.handlePiIterationChange}
+        <div style={{display: "flex", flexDirection: "row", maxHeight: "300px"}}>
+          <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+            <button onClick={this.alertFunc}>Window.alert('Hi') Example</button>
+          </div>
+          <Clock />
+          <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+            <img
+              src={logo}
+              className={this.state.animation1 ? "App-logo" : "App-logo-paused"}
+              alt="logo"
+              onClick={this.toggleAnimation1}
             />
-          </label>
-        </form>
-        <button onClick={this.estimatePi}>Run in main thread</button>
-        <button onClick={this.webWorkerTest}>Run in a web worker</button>
+            <p className="logo-text">
+              CSS transform: rotate()
+            </p>
+          </div>
+          <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+            <img
+              src={logo}
+              className={this.state.animation2 ? "App-logo2" : "App-logo2-paused"}
+              alt="logo"
+              onClick={this.toggleAnimation2}
+            />
+            <p className="logo2-text">CSS margin-left()</p>
+          </div>
+          <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+            <img
+              src={'https://i.redd.it/ounq1mw5kdxy.gif'}
+              alt="gif"
+            />
+            <p className="logo2-text">GIF</p>
+          </div>
+        </div>
+        <div style={{ marginTop: "20px" }}>
+          <b>Monte Carlo PI Simulator</b>
+          <form>
+        
+            <label>
+            number of iterations: 
+              <input
+                type="text"
+                name="i"
+                onChange={this.handlePiIterationChange}
+              />
+            </label>
+          </form>
+          <button onClick={this.estimatePi}>Run in main thread</button>
+          <button onClick={this.webWorkerTest}>Run in a web worker</button>
 
-        <p>
-          PI SIM last result: {this.state.PiResult}. Time it took:{" "}
-          {this.state.timeTaken} ms
-        </p>
+          <p>
+            PI SIM last result: {this.state.PiResult}. Time it took:{" "}
+            {this.state.timeTaken} ms
+          </p>
 
-  
-        <p className="notes">
-          Real PI:
-          3.1415926535897932384626433832795028841971693993751058209749445923078
-        </p>
-        <p className="notes"> i: {this.state.PiCount}</p>
+    
+          <p className="notes">
+            Real PI:
+            3.1415926535897932384626433832795028841971693993751058209749445923078
+          </p>
+          <p className="notes"> i: {this.state.PiCount}</p>
+        </div>
       </div>
     );
   }
