@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import worker_script from "./worker";
+import plot from "./plot.png";
+
 
 class App extends Component {
   constructor(props) {
@@ -219,6 +221,7 @@ class App extends Component {
 
     return (
       <div className="App">
+      <h1>Web Workers</h1>
         <img
           src={logo}
           className={this.state.animation ? "App-logo" : "App-logo-paused"}
@@ -296,6 +299,8 @@ class App extends Component {
         <p className="notes"> i: {this.state.PiIterations}</p>
         <p className="notes"> nWorkers: {this.state.nWorkers}</p>
         <ul className="notes">{this.state.nWorkersResults}</ul>
+
+        <img src={plot}></img>
         
       </div>
     );
