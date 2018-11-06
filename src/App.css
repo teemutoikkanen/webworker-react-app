@@ -11,46 +11,43 @@
   animation-play-state: paused;
 }
 
+hr {
+  border: 0;
+  width: 80%;
+  color: blueviolet;
+  background-color: blueviolet;
+  height: 1px;
+}
+
+p {
+  margin: 0;
+}
+
+.logo-text {
+  font-size: 15px
+}
+
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: 10s slide-margin linear infinite;
   height: 200px;
   
 }
 
 .App-logo-paused {
-  animation: 3s slide-margin linear infinite;
+  animation: 10s slide-margin linear infinite;
   height: 200px;
   animation-play-state: paused;
-}
-
-.App-logo2 {
-  animation: 3s slide-margin linear infinite;
-  height: 200px;
-}
-
-.App-logo2-paused {
-  animation: 3s slide-margin linear infinite;
-  height: 200px;
-  animation-play-state: paused;
+  /* background-color: red  */
 }
 
 .notes {
   font-size: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes slide-margin {
-  from {margin-left: 0;}
+  from {margin-left: -50%;}
   50% {margin-left: 50%;}
-  to {margin-left: 0;}
+  to {margin-left: -50%;}
 }
 
 
