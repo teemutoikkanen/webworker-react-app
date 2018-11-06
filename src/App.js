@@ -97,10 +97,6 @@ class App extends Component {
     return result;
   }
 
-  alertFunc() {
-    window.alert("Hi");
-  }
-
   toggleAnimation() {
     this.setState({
       animation: !this.state.animation
@@ -133,7 +129,7 @@ class App extends Component {
 
   setPiIterations = event => {
     this.setState({
-      PiIterations: event.target.value
+      PiIterations: parseInt(event.target.value),
     });
   };
 
