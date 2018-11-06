@@ -179,6 +179,7 @@ class App extends Component {
 
     let i = 0;
     for (i = 0; i < nWorkers; i++) {
+      console.log("new worker number: " + (i+1) + " iPerWorker ", + iPerWorker);
       var myWorker = new Worker(worker_script);
       myWorker.postMessage(iPerWorker);
 
