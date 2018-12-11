@@ -5,6 +5,8 @@ import Clock from './Clock.js'
 import MonteCarlo from './examples/MonteCarlo/MonteCarlo.js'
 import TabTest from './examples/TabTest/TabTest.js'
 
+var that;
+
 class App extends Component {
 
   constructor(props) {
@@ -15,35 +17,23 @@ class App extends Component {
       selectedExampleIdx: 0
     };
 
+    that = this;
+
     this.examples = [
       { label: "Monte Carlo", component: MonteCarlo },
       { label: "Tab test", component: TabTest }
     ]
-
-    this.toggleAnimation1 = this.toggleAnimation1.bind(this);
-    this.toggleAnimation2 = this.toggleAnimation2.bind(this);
-    this.Example = this.Example.bind(this)
-    this.selectExample = this.selectExample.bind(this)
   }
 
-  alertFunc() {
-    window.alert("Hi");
-  }
-
-  toggleAnimation1() {
+  toggleAnimation() {
     this.setState({
-      animation1: !this.state.animation1
-    });
-  }
-  toggleAnimation2() {
-    this.setState({
-      animation2: !this.state.animation2
+      animation: !this.state.animation
     });
   }
 
   Example() {
-    console.log(this.state.selectedExampleIdx)
-    const SelectedExample = this.examples[this.state.selectedExampleIdx].component;
+    console.log(that.state.selectedExampleIdx)
+    const SelectedExample = that.examples[that.state.selectedExampleIdx].component;
     return <SelectedExample />
   }
 
@@ -56,11 +46,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div style={{display: "flex", flexDirection: "row", maxHeight: "300px"}}>
-          <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-            <button onClick={this.alertFunc}>Window.alert('Hi') Example</button>
-          </div>
-          <Clock />
+        <div style={{display: "flex", flexDirection: "row", maxHeight: "250px"}}>
           <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
             <img
               src={logo}
@@ -69,19 +55,11 @@ class App extends Component {
               onClick={this.toggleAnimation1}
             />
             <p className="logo-text">
-              CSS transform: rotate()
+              CSS margin-left
             </p>
           </div>
-          <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-            <img
-              src={logo}
-              className={this.state.animation2 ? "App-logo2" : "App-logo2-paused"}
-              alt="logo"
-              onClick={this.toggleAnimation2}
-            />
-            <p className="logo2-text">CSS margin-left()</p>
-          </div>
-          <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+          <Clock />
+          <div style={{display: "flex", flex: 1, flexDirection: "column", alignItems: "center"}}>
             <img
               src={'https://i.redd.it/ounq1mw5kdxy.gif'}
               alt="gif"
@@ -89,10 +67,10 @@ class App extends Component {
             <p className="logo2-text">GIF</p>
           </div>
         </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
+        <div style={{ display: "flex", flexDirection: "row", alignItems: "start", borderBottom: '1px solid white' }}>
           {
             this.examples.map((e, idx) => {
-              return <button onClick={() => this.selectExample(idx)} key={e.label}>{e.label}</button>
+              return <div className={ 'tab ' + (idx === this.state.selectedExampleIdx ? 'selectedTab' : '')} onClick={() => this.selectExample(idx)} key={e.label}>{e.label}</div>
             })
           }
         </div>

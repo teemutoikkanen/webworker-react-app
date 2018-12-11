@@ -27,7 +27,7 @@ class Clock extends Component {
 
   render() {
     return (
-      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", fontSize: "50px", margin: "0px 20px" }}>
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", fontSize: "50px", marginLeft: "150px" }}>
         { this.state.time.toTimeString().substr(0, 8) }
       </div>
     );
