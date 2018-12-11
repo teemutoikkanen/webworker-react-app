@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Clock from './Clock.js'
 import MonteCarlo from './examples/MonteCarlo/MonteCarlo.js'
+import Arrays from './examples/Arrays/Arrays.js'
 import TabTest from './examples/TabTest/TabTest.js'
 
 var that;
@@ -21,7 +22,7 @@ class App extends Component {
 
     this.examples = [
       { label: "Monte Carlo", component: MonteCarlo },
-      { label: "Tab test", component: TabTest }
+      { label: "Arrays", component: Arrays },
     ]
   }
 
