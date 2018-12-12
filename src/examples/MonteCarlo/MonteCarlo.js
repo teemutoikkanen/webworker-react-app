@@ -12,15 +12,14 @@ class MonteCarlo extends Component {
       PiResultMainThread: 0,
       PiTimeTakenMainThread: 0,
       PiCorrectDigitsMainThread: 0,
-      PiResultWebWorker: 0,
-      PiTimeTakenWebWorker: 0,
-      PiCorrectDigitsWebWorker: 0,
+      // PiResultWebWorker: 0,
+      // PiTimeTakenWebWorker: 0,
+      // PiCorrectDigitsWebWorker: 0,
       nWorkers: 4,
       nWorkersResults: [],
       nWorkersFinalResult: 0,
       nWorkersCorrectDigits: 0,
       nWorkersT0: 0,
-      // nWorkersT1: 0,
       nWorkersTime: 0,
     };
 
@@ -198,7 +197,7 @@ setNWorkers = event => {
     return (
       <div className="flexColumn">
         <b>Monte Carlo PI Simulator</b>
-        <hr/>
+        
         <div
           className="radio-buttons-montecarlo"
           onChange={this.setPiIterations}
@@ -225,13 +224,13 @@ setNWorkers = event => {
         <p>Time taken: {this.state.PiTimeTakenMainThread} ms</p>
         <hr/>
 
-        <div className="montecarlo-web-worker">
+        {/* <div className="montecarlo-web-worker">
           <button onClick={this.webWorkerTest}>Run in a web worker</button>
         </div>
         <p>Result: {this.state.PiResultWebWorker}</p>
         <p>Correct decimals: {this.state.PiCorrectDigitsWebWorker}</p>
         <p>Time taken: {this.state.PiTimeTakenWebWorker} ms</p>
-        <hr/>
+        <hr/> */}
         <div
           className="radio-buttons-multiple-workers"
           onChange={this.setNWorkers}
@@ -264,12 +263,12 @@ setNWorkers = event => {
           Real PI:
           3.1415926535897932384626433832795028841971693993751058209749445923078
         </p>
-        
+{/*         
         <p className="notes"> i: {this.state.PiIterations}</p>
         <p className="notes"> nWorkers: {this.state.nWorkers}</p>
-        <ul className="notes">{this.state.nWorkersResults}</ul>
+        <ul className="notes">{this.state.nWorkersResults}</ul> */}
 
-        <img src={plot}></img>
+        {/* <img src={plot}></img> */}
       </div>
     );
   }
