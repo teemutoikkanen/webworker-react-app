@@ -85,7 +85,7 @@ class Arrays extends Component {
           this.setState({
             numDoneWorkers: this.state.numDoneWorkers + 1
           })
-          if (this.state.numDoneWorkers === this.state.numWorkers) {
+          if (this.state.numDoneWorkers === parseInt(this.state.numWorkers)) {
             let t1 = performance.now();
             this.setState({
               timeTaken: t1-t0

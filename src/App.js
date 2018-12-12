@@ -60,7 +60,7 @@ class App extends Component {
             </p>
           </div>
           <Clock />
-          <div style={{display: "flex", flex: 1, flexDirection: "column", alignItems: "center"}}>
+          <div style={{display: "none", flex: 1, flexDirection: "column", alignItems: "center"}}>
             <img
               src={'https://i.redd.it/ounq1mw5kdxy.gif'}
               alt="gif"

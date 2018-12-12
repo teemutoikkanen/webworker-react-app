@@ -20,7 +20,7 @@ class MonteCarlo extends Component {
       nWorkersFinalResult: 0,
       nWorkersCorrectDigits: 0,
       nWorkersT0: 0,
-      nWorkersT1: 0,
+      // nWorkersT1: 0,
       nWorkersTime: 0,
     };
 
@@ -68,7 +68,7 @@ class MonteCarlo extends Component {
 
 
     //aina kun resultteja tullut lisää ja niitä oikea määrä nWorkers, ts. kun kaikki workerit on tehny duuninsa
-    if (prevState.nWorkersResults !== this.state.nWorkersResults && this.state.nWorkersResults.length === this.state.nWorkers) {
+    if (prevState.nWorkersResults !== this.state.nWorkersResults && this.state.nWorkersResults.length === parseInt(this.state.nWorkers)) {
       // console.log("results muuttu JA length: " + this.state.nWorkers)
       let nWorkersResults = this.state.nWorkersResults;
       let t1 = performance.now();
@@ -79,6 +79,8 @@ class MonteCarlo extends Component {
       const average = arr => arr.reduce( ( p, c ) => p + c, 0 ) / arr.length;
 
       let finalResults = average(nWorkersResults);
+
+      console.log("time", (t1 - t0).toFixed(1))
       this.setState({
         nWorkersFinalResult: finalResults,
         nWorkersCorrectDigits: this.nDecimalsCorrect(finalResults.toString()),
