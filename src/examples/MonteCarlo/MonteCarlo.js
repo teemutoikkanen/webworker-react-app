@@ -21,6 +21,7 @@ class MonteCarlo extends Component {
       nWorkersCorrectDigits: 0,
       nWorkersT0: 0,
       nWorkersTime: 0,
+      coordArray: [],
     };
 
 
@@ -183,10 +184,21 @@ setNWorkers = event => {
 
       myWorker.onmessage = function(e) {
         console.log("Message received from worker");
-        // results.push(e.data);
-        this.setState(prevState => ({
-          nWorkersResults: [...this.state.nWorkersResults, e.data]
-        }))
+
+        if (e.data.x) {
+          // console.log(e.data.x, " ", e.data.y);
+          this.setState(prevState => ({
+            coordArray: [...this.state.coordArray, e.data]
+          }))
+
+        }
+        else {
+          this.setState(prevState => ({
+            nWorkersResults: [...this.state.nWorkersResults, e.data]
+          }))
+          
+        }
+
         
       }.bind(this)
     
@@ -269,6 +281,18 @@ setNWorkers = event => {
         <ul className="notes">{this.state.nWorkersResults}</ul> */}
 
         {/* <img src={plot}></img> */}
+
+        <div className='unit-circle'>
+          <svg viewBox = '0 0 200 200' width="500" length="500">
+          <rect width="200" height="200" fill = "white" stroke-width="1" stroke="rgb(0,0,0)" />
+          <circle cx="100" cy="100" r="100" stroke="black" fill='white' />
+          {this.state.coordArray.length > 0 && this.state.coordArray.map((coord) => (
+            <circle cx={coord.x*100} cy={coord.y*100} r="1" stroke="green" fill="green" />
+          ))}
+          </svg>
+        </div>
+        
+
       </div>
     );
   }

@@ -6,8 +6,15 @@ const workercode = () => {
     var inside = 0;
     let count = e.data;
     for (var i = 0; i < count; i++) {
+
+
       var x = Math.random() * 2 - 1;
       var y = Math.random() * 2 - 1;
+
+      if (i % 1000000 === 0) {
+        this.postMessage({'x': x, 'y': y});
+      }
+
       if (x * x + y * y < 1) {
         inside++; 
         } 
