@@ -153,12 +153,14 @@ class Arrays extends Component {
           <input name="numarr" type="radio" value="16" defaultChecked />16
           <input name="numarr" type="radio" value="32" />32
           <input name="numarr" type="radio" value="64" />64
+          <input name="numarr" type="radio" value="128" />128
         </div>
         <div onChange={this.setNumElements}>
           <div>Number of elements / array</div>
           <input name="numelem" type="radio" value="500000" defaultChecked />500,000
           <input name="numelem" type="radio" value="1000000" />1,000,000
           <input name="numelem" type="radio" value="2000000" />2,000,000
+          <input name="numelem" type="radio" value="5000000" />5,000,000
         </div>
         <button onClick={this.sortArrays}>Sort in main thread</button>
         <button onClick={this.sortArraysWebWorkers}>Sort in web workers</button>
