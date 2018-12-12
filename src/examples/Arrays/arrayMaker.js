@@ -1,17 +1,14 @@
 const workercode = () => {
 
     onmessage = function(e) { 
-      console.log('Message received from main script');
-
       let params = e.data;
 
       const parentArray = [];
       for (var i=0; i < params.numArrays; i++) {
-        parentArray.push(Array.from({length: params.numElements}, () => Math.random()));
+        let arr = Array.from({length: params.numElements}, () => Math.random());
+        let typedArray = new Float32Array(arr);
+        postMessage(typedArray, [typedArray.buffer]);
       }
-
-      console.log('Posting message back to main script');
-      postMessage(parentArray);
     }
   };
   

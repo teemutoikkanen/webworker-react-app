@@ -1,15 +1,11 @@
 const workercode = () => {
 
     onmessage = function(e) { 
-      console.log('Message received from main script');
-
-      let arrays = e.data;
+      let arrays = e.data.arrays, id = e.data.id;
       for (var i=0; i < arrays.length; i++) {
         arrays[i] = arrays[i].sort();
+        postMessage({id: id, array: arrays[i]}, [arrays[i].buffer]);
       }
-
-      console.log('Posting message back to main script');
-      postMessage(arrays);
     }
   };
   
