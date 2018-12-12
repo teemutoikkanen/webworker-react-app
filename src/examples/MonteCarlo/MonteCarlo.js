@@ -111,12 +111,17 @@ class MonteCarlo extends Component {
     });
   }
 
+
+  // randomTest = () => {
+  //   return Math.random();
+  // }
+
   monteCarloPi() {
-    var inside = 0;
+    let inside = 0;
     let count = this.state.PiIterations;
-    for (var i = 0; i < count; i++) {
-      var x = Math.random() * 2 - 1;
-      var y = Math.random() * 2 - 1;
+    for (let i = 0; i < count; i++) {
+      const x = Math.random() * 2 - 1;
+      const y = Math.random() * 2 - 1;
       if (x * x + y * y < 1) {
         inside++;
       }
@@ -287,7 +292,7 @@ setNWorkers = event => {
           <rect width="200" height="200" fill = "white" stroke-width="1" stroke="rgb(0,0,0)" />
           <circle cx="100" cy="100" r="100" stroke="black" fill='white' />
           {this.state.coordArray.length > 0 && this.state.coordArray.map((coord) => (
-            <circle cx={coord.x*100} cy={coord.y*100} r="1" stroke="green" fill="green" />
+            <circle cx={coord.x*200} cy={coord.y*200} r="1" stroke="green" fill="green" />
           ))}
           </svg>
         </div>
