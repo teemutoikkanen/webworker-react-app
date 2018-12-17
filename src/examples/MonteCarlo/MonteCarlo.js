@@ -167,6 +167,8 @@ setNWorkers = event => {
 
   handleMultipleWebWorkers = () => {
 
+    
+
     const t0 = performance.now();
     let nWorkers = this.state.nWorkers;
     let PiIterations = this.state.PiIterations;
@@ -279,23 +281,25 @@ setNWorkers = event => {
         <p className="notes">
           Real PI:
           3.1415926535897932384626433832795028841971693993751058209749445923078
+          <br/>
+          navigator.hardwareConcurrency: {navigator.hardwareConcurrency}
         </p>
 {/*         
         <p className="notes"> i: {this.state.PiIterations}</p>
         <p className="notes"> nWorkers: {this.state.nWorkers}</p>
         <ul className="notes">{this.state.nWorkersResults}</ul> */}
 
-        {/* <img src={plot}></img> */}
+        <img src={plot}></img>
 
-        <div className='unit-circle'>
+        {/* <div className='unit-circle'>
           <svg viewBox = '0 0 200 200' width="500" length="500">
-          <rect width="200" height="200" fill = "white" stroke-width="1" stroke="rgb(0,0,0)" />
-          <circle cx="100" cy="100" r="100" stroke="black" fill='white' />
+          <rect width="200" height="200" fill = "#282c34" stroke-width="1" stroke="rgb(0,0,0)" />
+          <circle cx="100" cy="100" r="100" stroke="black" fill='#282c34' />
           {this.state.coordArray.length > 0 && this.state.coordArray.map((coord) => (
             <circle cx={coord.x*200} cy={coord.y*200} r="1" stroke="green" fill="green" />
           ))}
           </svg>
-        </div>
+        </div> */}
         
 
       </div>
