@@ -153,6 +153,10 @@ class Arrays extends Component {
           <input name="numwork" type="radio" value="9" />9
           <input name="numwork" type="radio" value="10" />10
           <input name="numwork" type="radio" value="11" />11
+          <input name="numwork" type="radio" value="12" />12
+          <input name="numwork" type="radio" value="13" />13
+          <input name="numwork" type="radio" value="14" />14
+          <input name="numwork" type="radio" value="15" />15
           <input name="numwork" type="radio" value="16" />16
         </div>
         <div onChange={this.setNumArrays}>

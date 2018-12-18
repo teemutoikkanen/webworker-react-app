@@ -358,6 +358,12 @@ setNWorkers = event => {
           9
           <input type="radio" value="10" name="workers" />
           10
+          <input type="radio" value="11" name="workers" />
+          11
+          <input type="radio" value="12" name="workers" />
+          12
+          <input type="radio" value="13" name="workers" />
+          13
           <input type="radio" value="16" name="workers" />
           16
         </div>
