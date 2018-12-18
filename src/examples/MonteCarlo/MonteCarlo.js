@@ -212,6 +212,89 @@ setNWorkers = event => {
     }
   }
 
+
+  dpquickTest = () => {
+
+    function dpquick(data, from, to) {
+      var length = to - from,
+        temp,
+        leftPivot,
+        rightPivot,
+        leftPivotValue,
+        rightPivotValue,
+        i,
+        j;
+      if (length <= 1) {
+        return;
+      }
+      if (length < 17) {
+        for (i = from + 1; i <= to; i++) {
+          for (j = i; j > from && data[j] < data[j - 1]; j--) {
+            temp = data[j - 1];
+            data[j - 1] = data[j];
+            data[j] = temp;
+          }
+        }
+        return;
+      }
+      leftPivot = from;
+      rightPivot = to;
+      if (data[leftPivot] > data[rightPivot]) {
+        temp = data[rightPivot];
+        data[rightPivot] = data[leftPivot];
+        data[leftPivot] = temp;
+      }
+      leftPivotValue = data[leftPivot];
+      rightPivotValue = data[rightPivot];
+      i = leftPivot + 1;
+      while (i < rightPivot) {
+        if (data[i] > rightPivotValue) {
+          temp = data[i];
+          rightPivot--;
+          data[i] = data[rightPivot];
+          data[rightPivot] = temp;
+        } else {
+          if (data[i] < leftPivotValue) {
+            temp = data[i];
+            leftPivot++;
+            data[i] = data[leftPivot];
+            data[leftPivot] = temp;
+          }
+          i++;
+        }
+      }
+      temp = data[leftPivot];
+      data[leftPivot] = data[from];
+      data[from] = temp;
+      temp = data[rightPivot];
+      data[rightPivot] = data[to];
+      data[to] = temp;
+      dpquick(data, from, leftPivot);
+      dpquick(data, leftPivot + 1, rightPivot - 1);
+      dpquick(data, rightPivot, to);
+    }
+
+    function sample(size) {
+      var items = [];
+    
+      for (var i = 0; i < size; i++) {
+        items.push(Math.round(Math.random() * size));
+      }
+    
+      return items;
+    }
+
+    let sample0 = sample(500000*16);
+    let t0 = performance.now();
+    dpquick(sample0, 0, sample0.length-1 )
+    let t1 = performance.now();
+
+    console.log(t1-t0)
+
+    // return "dpquick time: " + t1-t0;
+
+  }
+
   render() {
     return (
       <div className="flexColumn">
@@ -259,10 +342,22 @@ setNWorkers = event => {
           1
           <input type="radio" value="2" name="workers" />
           2
+          <input type="radio" value="3" name="workers" />
+          3
           <input type="radio" value="4" defaultChecked name="workers" />
           4
+          <input type="radio" value="5" name="workers" />
+          5
+          <input type="radio" value="6" name="workers" />
+          6
+          <input type="radio" value="7" name="workers" />
+          7
           <input type="radio" value="8" name="workers" />
           8
+          <input type="radio" value="9" name="workers" />
+          9
+          <input type="radio" value="10" name="workers" />
+          10
           <input type="radio" value="16" name="workers" />
           16
         </div>
@@ -283,6 +378,8 @@ setNWorkers = event => {
           3.1415926535897932384626433832795028841971693993751058209749445923078
           <br/>
           navigator.hardwareConcurrency: {navigator.hardwareConcurrency}
+          <br/>
+          {/* {this.dpquickTest()} */}
         </p>
 {/*         
         <p className="notes"> i: {this.state.PiIterations}</p>

@@ -144,8 +144,15 @@ class Arrays extends Component {
           <div>Number of workers</div>
           <input name="numwork" type="radio" value="1" />1
           <input name="numwork" type="radio" value="2" />2
+          <input name="numwork" type="radio" value="3" />3
           <input name="numwork" type="radio" value="4" defaultChecked />4
+          <input name="numwork" type="radio" value="5" />5
+          <input name="numwork" type="radio" value="6" />6
+          <input name="numwork" type="radio" value="7" />7
           <input name="numwork" type="radio" value="8" />8
+          <input name="numwork" type="radio" value="9" />9
+          <input name="numwork" type="radio" value="10" />10
+          <input name="numwork" type="radio" value="11" />11
           <input name="numwork" type="radio" value="16" />16
         </div>
         <div onChange={this.setNumArrays}>
