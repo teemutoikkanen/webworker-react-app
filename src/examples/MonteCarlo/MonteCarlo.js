@@ -392,7 +392,7 @@ setNWorkers = event => {
         <p className="notes"> nWorkers: {this.state.nWorkers}</p>
         <ul className="notes">{this.state.nWorkersResults}</ul> */}
 
-        <img src={plot}></img>
+        {/* <img src={plot}></img> */}
 
         {/* <div className='unit-circle'>
           <svg viewBox = '0 0 200 200' width="500" length="500">
