@@ -1,8 +1,8 @@
-#webworker-react-app
+## webworker-react-app
 
 small school project for testing performance of multi-threaded web-applications in JS
 
-#Refs
+# Refs
 
 https://parallel.js.org/
 
