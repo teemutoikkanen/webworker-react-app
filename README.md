@@ -1,10 +1,6 @@
-#Suunnitelma
+#webworker-react-app
 
--animaatio
--toggle animation on/off nappi
--"calculations /w webworkers"
--"calculations /wo webworkers"
--"benchmark calculation, input complexity or someting"
+small school project for testing performance of multi-threaded web-applications in JS
 
 #Refs
 
