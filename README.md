@@ -1,6 +1,6 @@
 ## webworker-react-app
 
-small school project for testing performance of multi-threaded web-applications in JS
+small university project for testing  performance of multi-threaded web-applications in JS
 
 # Refs
 
